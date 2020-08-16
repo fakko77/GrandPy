@@ -36,10 +36,10 @@ $(function() {
       msg: $('textarea[name="msg"]').val(),
     }, function(data) {
       $("#result").text(data.result);
-      $('div[name="botmsg"]').append('<div class="mine message">' + data.result + '</div>');
+//      $('div[name="botmsg"]').append('<div class="mine message">' + data.result + '</div>');
       initMap(data.lat,data.lng)
     });
-    return false;
+    return false; 
   });
 });
 

@@ -20,6 +20,7 @@
 </script>
   <title> Papy-Robot 🤖 👴</title>
 </head>
+
 <header class="container" >
     <div class="head">
         <i class="fas fa-robot fa-4x logo"></i>
@@ -28,6 +29,11 @@
     </div>
 </header>
 <body class="container">
+    <div class="gp">
+      <span id=result>?</span>
+    <img src="{{url_for('static', filename='grand.gif')}}" />
+    </div>
+
 <div class="chat-popup" id="myForm">
   <form class="form-container">
     <h1>Chat</h1>
@@ -48,10 +54,11 @@
     <div id="button">
     <button type="submit" class="btn btn-primary btn-sm" id="bt" onclick="myFunction();  return false" >Send</button>
     <button type="button" class="btn btn-secondary btn-sm"  id="test" >Close</button>
+
     </div>
           <div id="map" ></div>
           </div>
-   <span id=result>?</span>
+
 
   </form>
 </div>
