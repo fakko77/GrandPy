@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/Projet Flask.iml" filepath="$PROJECT_DIR$/.idea/Projet Flask.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/GrandPy.iml" filepath="$PROJECT_DIR$/.idea/GrandPy.iml" />
     </modules>
   </component>
 </project>
