@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="Fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <link href="{{ url_for('static', filename='bootstrap.css') }}" rel="stylesheet" type="text/css" />
+ <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet" type="text/css" />
+<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAr9x7A9TvznnGv43D0ZFB3e3c9IIIm3cQ&callback=initMap&libraries=&v=weekly"
+      defer
+    ></script>
+    <script src="https://kit.fontawesome.com/f9284bc325.js" crossorigin="anonymous"></script>
+    <script type=text/javascript src="{{url_for('static', filename='jquery.js') }}"></script>
+    <script type=text/javascript src="{{url_for('static', filename='js.js') }}"></script>
+
+<script type=text/javascript>
+  $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
+</script>
+  <title> Papy-Robot 🤖 👴</title>
+</head>
+<header class="container" >
+    <div class="head">
+        <i class="fas fa-robot fa-4x logo"></i>
+        <h3>Grand-père robot raconte nous une histoire</h3>
+        <i class="fas fa-robot fa-4x logo"></i>
+    </div>
+</header>
+<body class="container">
+<div class="chat-popup" id="myForm">
+  <form class="form-container">
+    <h1>Chat</h1>
+      <div class="dialogue"  id="dialogue">
+        <div class="yours messages" name="botmsg">
+    <div class="message last">
+      Bonjour, Posé votre question
+    </div>
+  </div>
+  <div class="mine messages" id="mine messages">
+  </div>
+      </div>
+      <br>
+      <div class="chat">
+    <label ><b>Message</b></label>
+    <textarea  class ="form-control txt-area" placeholder="Type message.." id="msg" name="msg" required></textarea>
+          <br>
+    <div id="button">
+    <button type="submit" class="btn btn-primary btn-sm" id="bt" onclick="myFunction();  return false" >Send</button>
+    <button type="button" class="btn btn-secondary btn-sm"  id="test" >Close</button>
+    </div>
+          <div id="map" ></div>
+          </div>
+   <span id=result>?</span>
+
+  </form>
+</div>
+</body>
+
+</html>
+
