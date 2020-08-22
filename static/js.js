@@ -33,13 +33,24 @@ function initMap(a,b) {
 $(function() {
   $('#bt').bind('click', function() {
     $.getJSON($SCRIPT_ROOT + '/requestAjax', {
-      msg: $('textarea[name="msg"]').val(),
+      msg: $('input[name="msg"]').val(),
     }, function(data) {
       $("#result").text(data.result);
 //      $('div[name="botmsg"]').append('<div class="mine message">' + data.result + '</div>');
       initMap(data.lat,data.lng)
     });
-    return false; 
+    return false;
   });
+  $(document).on('keypress',function(e) {
+    if(e.which == 13) {
+        $.getJSON($SCRIPT_ROOT + '/requestAjax', {
+      msg: $('input[name="msg"]').val(),
+    }, function(data) {
+      $("#result").text(data.result);
+//      $('div[name="botmsg"]').append('<div class="mine message">' + data.result + '</div>');
+      initMap(data.lat,data.lng)
+    });
+    }
+});
 });
 

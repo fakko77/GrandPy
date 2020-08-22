@@ -1,4 +1,5 @@
 from flask import Flask, jsonify, render_template, request
+import os
 from flask_googlemaps import GoogleMaps
 from function.function import getInfo
 from model.City import City
@@ -7,8 +8,10 @@ from variables import PARSER
 
 app = Flask(__name__)
 # app.config.from_object('config')
-app.config['GOOGLEMAPS_KEY'] = "AIzaSyAr9x7A9TvznnGv43D0ZFB3e3c9IIIm3cQ"
-GoogleMaps(app)
+# app.config['GOOGLEMAPS_KEY'] = "AIzaSyAr9x7A9TvznnGv43D0ZFB3e3c9IIIm3cQ"
+# GoogleMaps(app)
+# key = ''
+# value = os.getenv(key)
 
 @app.route('/')
 def index():
