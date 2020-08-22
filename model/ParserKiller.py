@@ -1,4 +1,4 @@
-class killer:
+class Killer:
     """ class for creat a City """
     def __init__(self, text):
         self.text = text
@@ -10,7 +10,7 @@ class killer:
         dicolen = len(dico)
         txt = txt.split()
         txtlen = len(txt)
-        list =[]
+        list = []
         while dicolen > cpt:
             cpt_txt = 0
             while txtlen > cpt_txt:
@@ -24,4 +24,3 @@ class killer:
             txt.remove(list[x])
             x += 1
         return txt
-

@@ -1,12 +1,14 @@
 import requests
 
+
 class City:
     """ class for create a City """
+
     def __init__(self, name):
         self.name = name
 
     def searchCity(self):
-        try:
+        try :
             city = self.name
             """search for the city and give  location """
             r = requests.get("https://maps.googleapis.com"
@@ -27,5 +29,3 @@ class City:
         results = r.json()['query']['geosearch']
         id = results[0]['pageid']
         return id
-
-
