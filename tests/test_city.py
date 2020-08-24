@@ -1,14 +1,9 @@
 from model.City import City
 
 def test_searchCity():
-    # ville = City("Paris")
-    assert "0" == "0"
+    ville = City("Paris")
+    assert ville.searchCity() == {'lat': 48.856614,'lng': 2.3522219}
 
-    # """
-    # >>>
-    # >>>
-    # location =
-    # """
 
 # -City:
 #  -Modifier nom ville

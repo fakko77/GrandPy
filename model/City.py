@@ -8,7 +8,8 @@ class City:
         self.name = name
 
     def searchCity(self):
-        try :
+        """ search city  location"""
+        try:
             city = self.name
             """search for the city and give  location """
             r = requests.get("https://maps.googleapis.com"

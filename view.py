@@ -1,5 +1,5 @@
 from flask import Flask, jsonify, render_template, request
-from function.function import getInfo
+import function.function as getInfo
 from model.City import City
 from model.ParserKiller import Killer
 from variables import PARSER
