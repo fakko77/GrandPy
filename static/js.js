@@ -44,30 +44,33 @@ function sleep(ms) {
 }
 
 function spinner(txt) {
-	sleep(5000);
 	document.getElementById("result").innerHTML = txt;
-	sleep(5000);
 }
 //Ajax Request send/receive
-$(function () {
-	spinner("Papi refléchie");
+
+ $(function Test () {
 	$('#bt').bind('click', function () {
 		$.getJSON($SCRIPT_ROOT + '/requestAjax', {
 			msg: $('input[name="msg"]').val(),
 		}, function (data) {
+
 			$("#result").text(data.result);
 			initMap(data.lat, data.lng)
 		});
 		return false;
 	});
 	$(document).on('keypress', function (e) {
+
 		if (e.which == 13) {
+		    myFunction()
 			$.getJSON($SCRIPT_ROOT + '/requestAjax', {
 				msg: $('input[name="msg"]').val(),
 			}, function (data) {
+			    console.log("ici");
 				$("#result").text(data.result);
 				initMap(data.lat, data.lng)
 			});
+			return false;
 		}
 	});
 });
