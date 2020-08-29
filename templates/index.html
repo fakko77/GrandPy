@@ -3,6 +3,7 @@
    <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
       <link href="{{ url_for('static', filename='bootstrap.css') }}" rel="stylesheet" type="text/css" />
       <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet" type="text/css" />
       <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
@@ -10,12 +11,15 @@
          src="https://maps.googleapis.com/maps/api/js?key={{key_API}}&callback=initMap&libraries=&v=weekly"
          defer
          ></script>
+
       <script src="https://kit.fontawesome.com/f9284bc325.js" crossorigin="anonymous"></script>
+      <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
       <script type=text/javascript src="{{url_for('static', filename='jquery.js') }}"></script>
       <script type=text/javascript src="{{url_for('static', filename='js.js') }}"></script>
       <script type=text/javascript>
          $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
       </script>
+
       <title> Papy-Robot 🤖 👴</title>
    </head>
    <header class="container" >
@@ -31,9 +35,9 @@
       <div class="gp">
 
   <span class="sr-only">Loading...</span>
-</div>
-         <span id=result>?</span>
-        <div class="spinner-border" role="status"></div>
+
+         <span id=result></span>
+        <div class="spinner-border" role="status" id="spinner-border"></div>
          <img src="{{url_for('static', filename='grand.gif')}}" />
       </div>
       <div class="chat-popup" id="myForm">
@@ -54,8 +58,9 @@
                <input  class ="form-control txt-area" placeholder="Type message.." id="msg" name="msg" required>
                <br>
                <div id="button">
-                  <button type="submit" class="btn btn-primary btn-sm" id="bt" onclick="myFunction();  return false" >Send</button>
-                  <button type="button" class="btn btn-secondary btn-sm"  id="test" >Close</button>
+                  <button type="submit" class="btn btn-primary btn-sm" id="bt" onclick="xx();  return false" >Send</button>
+                 <button type="button" onclick="namecaller()">
+                  You are a...</button>
                </div>
                <div id="map" ></div>
             </div>

@@ -69,3 +69,6 @@ body {
 	border-radius: 100px / 50px;
 	align-self: center;
 }
+.spinner-border{
+    display: none;
+}

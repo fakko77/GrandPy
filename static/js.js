@@ -10,6 +10,34 @@ function myFunction() {
 	para.appendChild(node);
 	div.appendChild(para);
 }
+
+function namecaller(){
+      $.getJSON($SCRIPT_ROOT + '/requestAjax',
+    {
+      msg: $('input[name="msg"]').val(),
+    },
+    function(data,status){
+      $("#result").text(data.result);
+	  initMap(data.lat, data.lng)
+    });
+}
+
+
+
+function xx() {
+    myFunction();
+    document.getElementById('spinner-border').style.display = "block";
+    document.getElementById('result').style.display = "none";
+    setTimeout(function(){
+    document.getElementById('spinner-border').style.display = "none";
+    }, 5000);
+    setTimeout(function(){
+     document.getElementById('result').style.display = "block";
+    }, 6000);
+    setTimeout(namecaller,7000)
+}
+
+
 //Google map
 function initMap(a, b) {
 	if (a == null) {
@@ -39,38 +67,41 @@ function initMap(a, b) {
 	}
 }
 
-function sleep(ms) {
-	return new Promise(resolve => setTimeout(resolve, ms));
-}
 
-function spinner(txt) {
-	document.getElementById("result").innerHTML = txt;
-}
+
+document.addEventListener("keydown", function(event) {
+    if (event.keycode == 13){
+        xx();
+    }
+
+})
+
 //Ajax Request send/receive
 
- $(function Test () {
-	$('#bt').bind('click', function () {
-		$.getJSON($SCRIPT_ROOT + '/requestAjax', {
-			msg: $('input[name="msg"]').val(),
-		}, function (data) {
-
-			$("#result").text(data.result);
-			initMap(data.lat, data.lng)
-		});
-		return false;
-	});
-	$(document).on('keypress', function (e) {
-
-		if (e.which == 13) {
-		    myFunction()
-			$.getJSON($SCRIPT_ROOT + '/requestAjax', {
-				msg: $('input[name="msg"]').val(),
-			}, function (data) {
-			    console.log("ici");
-				$("#result").text(data.result);
-				initMap(data.lat, data.lng)
-			});
-			return false;
-		}
-	});
-});
+//
+// $(function() {
+//	$('#bt').bind('click', function () {
+//		$.getJSON($SCRIPT_ROOT + '/requestAjax', {
+//			msg: $('input[name="msg"]').val(),
+//		}, function (data) {
+//
+//			$("#result").text(data.result);
+//			initMap(data.lat, data.lng)
+//		});
+//		return false;
+//	});
+//	$(document).on('keypress', function (e) {
+//
+//		if (e.which == 13) {
+//		    myFunction()
+//			$.getJSON($SCRIPT_ROOT + '/requestAjax', {
+//				msg: $('input[name="msg"]').val(),
+//			}, function (data) {
+//			    console.log("ici");
+//				$("#result").text(data.result);
+//				initMap(data.lat, data.lng)
+//			});
+//			return false;
+//		}
+//	});
+//});
