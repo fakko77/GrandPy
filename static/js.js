@@ -11,7 +11,7 @@ function myFunction() {
 	div.appendChild(para);
 }
 
-function namecaller(){
+function send(){
       $.getJSON($SCRIPT_ROOT + '/requestAjax',
     {
       msg: $('input[name="msg"]').val(),
@@ -24,7 +24,7 @@ function namecaller(){
 
 
 
-function xx() {
+function spin() {
     myFunction();
     document.getElementById('spinner-border').style.display = "block";
     document.getElementById('result').style.display = "none";
@@ -34,7 +34,7 @@ function xx() {
     setTimeout(function(){
      document.getElementById('result').style.display = "block";
     }, 6000);
-    setTimeout(namecaller,7000)
+    setTimeout(send,6500)
 }
 
 
@@ -71,7 +71,7 @@ function initMap(a, b) {
 
 document.addEventListener("keydown", function(event) {
     if (event.keycode == 13){
-        xx();
+        spin();
     }
 
 })

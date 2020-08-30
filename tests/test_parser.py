@@ -7,6 +7,7 @@ def test_parser():
     kil = Killer(msg)
     assert kil.parser(PARSER) == []
 
+
 def test_parser1():
     msg = "a abord absolument afin ah ai morgan aie ailleurs ainsi ait allaient allo allons"
     kil = Killer(msg)

@@ -71,4 +71,5 @@ body {
 }
 .spinner-border{
     display: none;
+    align-self: center;
 }

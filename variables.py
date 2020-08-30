@@ -96,3 +96,65 @@ PARSER = ["a", "abord", "absolument", "afin", "ah", "ai", "aie", "ailleurs", "ai
           "votre", "vous", "vous-mêmes", "vu", "vé", "vôtre", "vôtres", "w", "x", "y", "z", "zut", "à", "â", "ça",
           "ès",
           "étaient", "étais", "était", "étant", "été", "être", "ô"]
+
+MOCK_RESPONSE_searchCity = {
+   "results" : [
+      {
+         "address_components" : [
+            {
+               "long_name" : "Marseille",
+               "short_name" : "Marseille",
+               "types" : [ "locality", "political" ]
+            },
+            {
+               "long_name" : "Bouches-du-Rhone",
+               "short_name" : "Bouches-du-Rhone",
+               "types" : [ "administrative_area_level_2", "political" ]
+            },
+            {
+               "long_name" : "Provence-Alpes-Côte d'Azur",
+               "short_name" : "Provence-Alpes-Côte d'Azur",
+               "types" : [ "administrative_area_level_1", "political" ]
+            },
+            {
+               "long_name" : "France",
+               "short_name" : "FR",
+               "types" : [ "country", "political" ]
+            }
+         ],
+         "formatted_address" : "Marseille, France",
+         "geometry" : {
+            "bounds" : {
+               "northeast" : {
+                  "lat" : 43.3911601,
+                  "lng" : 5.5323519
+               },
+               "southwest" : {
+                  "lat" : 43.169621,
+                  "lng" : 5.228641
+               }
+            },
+            "location" : {
+               "lat" : 48.856614,
+               "lng" : 2.3522219
+            },
+            "location_type" : "APPROXIMATE",
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 43.3911601,
+                  "lng" : 5.5323519
+               },
+               "southwest" : {
+                  "lat" : 43.169621,
+                  "lng" : 5.228641
+               }
+            }
+         },
+         "place_id" : "ChIJM1PaREO_yRIRIAKX_aUZCAQ",
+         "types" : [ "locality", "political" ]
+      }
+   ],
+   "status" : "OK"
+}
+
+MOCK_RESPONSE_getId = {"batchcomplete":"","query":{"geosearch":[{"pageid":7785129,"ns":0,"title":"Jeux olympiques d'\u00e9t\u00e9 de 2024","lat":48.856614,"lon":2.3522219,"dist":0,"primary":""}]}}

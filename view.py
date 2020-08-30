@@ -18,7 +18,7 @@ def index():
 @app.route('/requestAjax', methods=["GET", "POST"])
 def requestAjax():
     msg = request.args.get('msg')
-    print(msg)
+    # print(msg)
     kil = Killer(msg)
     msg = str(kil.parser(PARSER))
     city = City(msg)
