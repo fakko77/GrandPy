@@ -10,7 +10,7 @@ function myFunction() {
 	para.appendChild(node);
 	div.appendChild(para);
 }
-
+//send request
 function send(){
       $.getJSON($SCRIPT_ROOT + '/requestAjax',
     {
@@ -21,9 +21,7 @@ function send(){
 	  initMap(data.lat, data.lng)
     });
 }
-
-
-
+//spinner js
 function spin() {
     myFunction();
     document.getElementById('spinner-border').style.display = "block";
@@ -36,8 +34,6 @@ function spin() {
     }, 6000);
     setTimeout(send,6500)
 }
-
-
 //Google map
 function initMap(a, b) {
 	if (a == null) {
@@ -66,42 +62,10 @@ function initMap(a, b) {
 		});
 	}
 }
-
-
-
+//enter effect
 document.addEventListener("keydown", function(event) {
     if (event.keycode == 13){
         spin();
     }
 
 })
-
-//Ajax Request send/receive
-
-//
-// $(function() {
-//	$('#bt').bind('click', function () {
-//		$.getJSON($SCRIPT_ROOT + '/requestAjax', {
-//			msg: $('input[name="msg"]').val(),
-//		}, function (data) {
-//
-//			$("#result").text(data.result);
-//			initMap(data.lat, data.lng)
-//		});
-//		return false;
-//	});
-//	$(document).on('keypress', function (e) {
-//
-//		if (e.which == 13) {
-//		    myFunction()
-//			$.getJSON($SCRIPT_ROOT + '/requestAjax', {
-//				msg: $('input[name="msg"]').val(),
-//			}, function (data) {
-//			    console.log("ici");
-//				$("#result").text(data.result);
-//				initMap(data.lat, data.lng)
-//			});
-//			return false;
-//		}
-//	});
-//});

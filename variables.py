@@ -157,4 +157,7 @@ MOCK_RESPONSE_searchCity = {
    "status" : "OK"
 }
 
-MOCK_RESPONSE_getId = {"batchcomplete":"","query":{"geosearch":[{"pageid":7785129,"ns":0,"title":"Jeux olympiques d'\u00e9t\u00e9 de 2024","lat":48.856614,"lon":2.3522219,"dist":0,"primary":""}]}}
+MOCK_RESPONSE_getId = {"batchcomplete":"","query":
+    {"geosearch":[{"pageid":7785129,"ns":0,"title"
+    :"Jeux olympiques d'\u00e9t\u00e9 de 2024","lat":
+        48.856614,"lon":2.3522219,"dist":0,"primary":""}]}}

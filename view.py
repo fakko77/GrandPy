@@ -3,17 +3,13 @@ from function.function import getInfo
 from model.City import City
 from model.ParserKiller import Killer
 from variables import PARSER
-import os
-from dotenv import load_dotenv
-load_dotenv()
-
+from config import KEY
 app = Flask(__name__)
-
 
 
 @app.route('/')
 def index():
-    return render_template("index.html", key_API=os.getenv("key"))
+    return render_template("index.html", key_API=KEY)
 
 @app.route('/requestAjax', methods=["GET", "POST"])
 def requestAjax():
@@ -21,7 +17,7 @@ def requestAjax():
     # print(msg)
     kil = Killer(msg)
     msg = str(kil.parser(PARSER))
-    city = City(msg)
+    city = City(msg, KEY)
     cord = city.searchCity()
     if cord != "ERROR":
         id = city.getId(cord)
@@ -30,7 +26,7 @@ def requestAjax():
         lng = cord['lng']
         return jsonify(result=extract, lat=lat, lng=lng)
     else:
-        msg = "sorry"
+        msg = "Désolé papy bot n'a pas compris! Essaye a nouveau!"
         return jsonify(result=msg, lat=48.856614, lng=2.3522219)
 
 

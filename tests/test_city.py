@@ -2,14 +2,14 @@ from model.City import City
 from variables import MOCK_RESPONSE_searchCity, MOCK_RESPONSE_getId
 import requests
 import responses
-
+from config import KEY
 
 class TestCity():
     PARISCORD = {'lat': 48.856614, 'lng': 2.3522219}
     ERROR = "ERROR"
     IDPARIS = 7785129
-    ville = City("Paris")
-    ville_error = City("GHFDDHGO")
+    ville = City("Paris", KEY)
+    ville_error = City("GHFDDHGO", KEY)
 
     @responses.activate
     def test_searchCity_mock(self,monkeypatch):
@@ -41,7 +41,7 @@ class TestCity():
         assert self.ville_error.searchCity() == self.ERROR
 
     def test_getid(self):
-        ville = City("Paris")
+        ville = City("Paris", KEY)
         cord = ville.searchCity()
         id = ville.getId(cord)
         assert id == self.IDPARIS

@@ -3,18 +3,19 @@ import os
 class City:
     """ class for create a City """
 
-    def __init__(self, name):
+    def __init__(self, name , key):
         self.name = name
-
+        self.key = "&key=" + key
+        print(os.getenv("key"))
     def searchCity(self):
         """ search city  location"""
-        key = os.getenv("key")
+
         try:
             city = self.name
             """search for the city and give  location """
             r = requests.get("https://maps.googleapis.com"
-                             "/maps/api/geocode/json?address=" + city +
-                             "&key=AIzaSyAr9x7A9TvznnGv43D0ZFB3e3c9IIIm3cQ")
+                             "/maps/api/geocode/json?address=" + city + self.key
+                             )
             results = r.json()['results']
             location = results[0]['geometry']['location']
             return location
