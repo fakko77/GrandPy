@@ -1,8 +1,8 @@
-from model.City import City
-from variables import MOCK_RESPONSE_searchCity, MOCK_RESPONSE_getId
+from gpapp.model import City
+from gpapp.variables import MOCK_RESPONSE_searchCity, MOCK_RESPONSE_getId
 import requests
 import responses
-from config import KEY
+from gpapp.config import KEY
 
 
 class TestCity:

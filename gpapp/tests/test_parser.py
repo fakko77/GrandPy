@@ -1,5 +1,5 @@
-from variables import PARSER
-from model.ParserKiller import Killer
+from gpapp.variables import PARSER
+from gpapp.model import Killer
 
 
 def test_parser():

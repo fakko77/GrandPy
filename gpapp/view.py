@@ -1,9 +1,9 @@
 from flask import Flask, jsonify, render_template, request
-from gpapp.function import getInfo
+from gpapp.function.function import getInfo
 from gpapp.model import City
-from gpapp.model import Killer
-from variables import PARSER
-from config import KEY
+from gpapp.model.ParserKiller import Killer
+from gpapp.variables import PARSER
+from gpapp.config import KEY
 
 app = Flask(__name__)
 
