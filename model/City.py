@@ -1,5 +1,7 @@
 import requests
 import os
+
+
 class City:
     """ class for create a City """
 
@@ -7,6 +9,7 @@ class City:
         self.name = name
         self.key = "&key=" + key
         print(os.getenv("key"))
+
     def searchCity(self):
         """ search city  location"""
 
@@ -24,6 +27,7 @@ class City:
             return location
 
     def getId(self, location):
+        """return page id"""
         lat = location['lat']
         lng = location['lng']
         r = requests.get(

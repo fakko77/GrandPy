@@ -4,7 +4,8 @@ import requests
 import responses
 from config import KEY
 
-class TestCity():
+
+class TestCity:
     PARISCORD = {'lat': 48.856614, 'lng': 2.3522219}
     ERROR = "ERROR"
     IDPARIS = 7785129
@@ -12,18 +13,19 @@ class TestCity():
     ville_error = City("GHFDDHGO", KEY)
 
     @responses.activate
-    def test_searchCity_mock(self,monkeypatch):
+    def test_searchCity_mock(self, monkeypatch):
         resultat = {'lat': 48.856614, 'lng': 2.3522219}
         responses.add(responses.GET, 'http://mock_test.com',
                       json=MOCK_RESPONSE_searchCity)
         resp = requests.get('http://mock_test.com')
+
         def mock_get(requests):
             return resp
         monkeypatch.setattr(requests, 'get', mock_get)
         assert self.ville.searchCity() == resultat
 
     @responses.activate
-    def test_getId_mock(self,monkeypatch):
+    def test_getId_mock(self, monkeypatch):
         resultat = 7785129
         responses.add(responses.GET, 'http://mock_test.com',
                       json=MOCK_RESPONSE_getId)
