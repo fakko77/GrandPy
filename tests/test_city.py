@@ -6,44 +6,46 @@ from config import KEY
 
 
 class TestCity:
-    PARISCORD = {'lat': 48.856614, 'lng': 2.3522219}
+    PARIS_CORD = {'lat': 48.856614, 'lng': 2.3522219}
     ERROR = "ERROR"
-    IDPARIS = 7785129
+    ID_PARIS = 7785129
     ville = City("Paris", KEY)
     ville_error = City("GHFDDHGO", KEY)
 
     @responses.activate
-    def test_searchCity_mock(self, monkeypatch):
-        resultat = {'lat': 48.856614, 'lng': 2.3522219}
+    def test_search_city_mock(self, monkeypatch):
+        result = {'lat': 48.856614, 'lng': 2.3522219}
         responses.add(responses.GET, 'http://mock_test.com',
                       json=MOCK_RESPONSE_searchCity)
-        resp = requests.get('http://mock_test.com')
+        result_mock = requests.get('http://mock_test.com')
 
         def mock_get(requests):
-            return resp
+            return result_mock
+
         monkeypatch.setattr(requests, 'get', mock_get)
-        assert self.ville.searchCity() == resultat
+        assert self.ville.search_city() == result
 
     @responses.activate
-    def test_getId_mock(self, monkeypatch):
-        resultat = 7785129
+    def test_get_Id_mock(self, monkeypatch):
+        result = 7785129
         responses.add(responses.GET, 'http://mock_test.com',
                       json=MOCK_RESPONSE_getId)
-        resp = requests.get('http://mock_test.com')
+        result_mock = requests.get('http://mock_test.com')
 
         def mock_get(requests):
-            return resp
+            return result_mock
+
         monkeypatch.setattr(requests, 'get', mock_get)
-        assert self.ville.getId(self.PARISCORD) == resultat
+        assert self.ville.get_id(self.PARIS_CORD) == result
 
-    def test_searchCity_return_location(self):
-        assert self.ville.searchCity() == self.PARISCORD
+    def test_search_city_return_location(self):
+        assert self.ville.search_city() == self.PARIS_CORD
 
-    def test_searchCity_return_error(self):
-        assert self.ville_error.searchCity() == self.ERROR
+    def test_search_city_return_error(self):
+        assert self.ville_error.search_city() == self.ERROR
 
-    def test_getid(self):
+    def test_get_id(self):
         ville = City("Paris", KEY)
-        cord = ville.searchCity()
-        id = ville.getId(cord)
-        assert id == self.IDPARIS
+        cord = ville.search_city()
+        id_result = ville.get_id(cord)
+        assert id_result == self.ID_PARIS

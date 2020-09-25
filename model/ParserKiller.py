@@ -7,20 +7,20 @@ class Killer:
         """ delete word depending on the dico """
         cpt = 0
         txt = self.text
-        dicolen = len(dico)
+        dict_len = len(dico)
         txt = txt.split()
-        txtlen = len(txt)
-        list = []
-        while dicolen > cpt:
+        txt_len = len(txt)
+        list_stock = []
+        while dict_len > cpt:
             cpt_txt = 0
-            while txtlen > cpt_txt:
+            while txt_len > cpt_txt:
                 if txt[cpt_txt] == dico[cpt]:
-                    list.append(dico[cpt])
+                    list_stock.append(dico[cpt])
                     cpt_txt += 1
                 cpt_txt += 1
             cpt += 1
             x = 0
-        while x < len(list):
-            txt.remove(list[x])
+        while x < len(list_stock):
+            txt.remove(list_stock[x])
             x += 1
         return txt

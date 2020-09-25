@@ -5,13 +5,13 @@
 <li>Clé d'api google map</li>
 </ul>
 <h1>Utilisation</h1>
-<p>Apres avoir installer les requierments et verifier les prérequis</p>
-Dans la zone de saisie ou il est marquer: "Ecrivez votre question ici!", vous avez la posibiliter 
+<p>Après avoir installé les requirements et verifier les prérequis</p>
+Dans la zone de saisie ou il est marqué: "Ecrivez votre question ici!", vous avez la posibilité 
 de formulez votre question!
 Pour la poser vous pouvez tout simplement clicker sur le boutton "poser!" ou
  appuyer sur la touche entré de votre clavier.
  Par la suite si votre reponse est comprise par papy robot. 
- il vous raconteras un fait historique sur le lieux donné!
+ il vous raconteras un fait historique sur le lieu donné!
  Amusez-vous! 😜
 <ul>
 <li>1- Posez votre question 

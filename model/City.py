@@ -10,7 +10,7 @@ class City:
         self.key = "&key=" + key
         print(os.getenv("key"))
 
-    def searchCity(self):
+    def search_city(self):
         """ search city  location"""
 
         try:
@@ -26,14 +26,15 @@ class City:
             location = "ERROR"
             return location
 
-    def getId(self, location):
+    def get_id(self, location):
         """return page id"""
         lat = location['lat']
         lng = location['lng']
         r = requests.get(
-            "https://fr.wikipedia.org/w/api.php?action=query&list"
-            "=geosearch&gscoord=" + str(lat) + "|" + str(lng) +
-            "&gsradius=10000&gslimit=1&format=json")
+        "https://fr.wikipedia.org/w/api.php?action=query&list"
+        "=geosearch&gscoord=" + str(lat) + "|" + str(lng) +
+        "&gsradius=10000&gslimit=1&format=json")
         results = r.json()['query']['geosearch']
-        id = results[0]['pageid']
-        return id
+        page_id = results[0]['pageid']
+        return page_id
+

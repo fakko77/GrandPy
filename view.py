@@ -1,5 +1,5 @@
 from flask import Flask, jsonify, render_template, request
-from function.function import getInfo
+from function.function import get_info
 from model.City import City
 from model.ParserKiller import Killer
 from variables import PARSER
@@ -11,17 +11,17 @@ app = Flask(__name__)
 def index():
     return render_template("index.html", key_API=KEY)
 
-@app.route('/requestAjax', methods=["GET", "POST"])
-def requestAjax():
+
+@app.route('/requestAjax')
+def request_ajax():
     msg = request.args.get('msg')
-    # print(msg)
     kil = Killer(msg)
     msg = str(kil.parser(PARSER))
     city = City(msg, KEY)
-    cord = city.searchCity()
+    cord = city.search_city()
     if cord != "ERROR":
-        id = city.getId(cord)
-        extract = getInfo(id)
+        page_id = city.get_id(cord)
+        extract = get_info(page_id)
         lat = cord['lat']
         lng = cord['lng']
         return jsonify(result=extract, lat=lat, lng=lng)
